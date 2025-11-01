@@ -1,18 +1,29 @@
-# Use an official lightweight Python image
+# --- Base image ---
 FROM python:3.10-slim
 
-# Set working directory
+# --- Set working directory ---
 WORKDIR /app
 
-# Copy requirements and install dependencies
+# --- Install system dependencies (for OpenCV) ---
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1 \
+    libglib2.0-0 \
+ && rm -rf /var/lib/apt/lists/*
+
+# --- Copy requirements first (cache layer) ---
 COPY requirements.txt .
+
+# --- Install Python packages ---
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy your application code
+# --- Copy all code and model ---
 COPY . .
 
-# Expose FastAPI port
+# --- Create output directory ---
+RUN mkdir -p output
+
+# --- Expose FastAPI port ---
 EXPOSE 8000
 
-# Run FastAPI app
+# --- Start FastAPI app ---
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

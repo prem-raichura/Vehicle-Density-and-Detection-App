@@ -1,9 +1,8 @@
-# Ignore unnecessary stuff
 __pycache__/
+*.log
 *.mp4
 *.jpg
-*.jpeg
 *.png
 output/
-.vscode/
-.git/
+.env
+.DS_Store
