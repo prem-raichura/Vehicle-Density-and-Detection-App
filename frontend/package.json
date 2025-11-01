@@ -4,12 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run vite\" \"npm run backend\"",
+    "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "vite": "vite",
-    "backend": "cd ../backend && python -m uvicorn main:app --reload"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
