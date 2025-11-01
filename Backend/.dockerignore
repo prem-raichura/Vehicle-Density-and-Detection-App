@@ -1,0 +1,9 @@
+# Ignore unnecessary stuff
+__pycache__/
+*.mp4
+*.jpg
+*.jpeg
+*.png
+output/
+.vscode/
+.git/
