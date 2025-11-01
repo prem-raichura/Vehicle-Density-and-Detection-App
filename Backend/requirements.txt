@@ -1,8 +1,6 @@
 fastapi
 uvicorn
-opencv-python-headless
+ultralytics
+opencv-python
 numpy
 python-multipart
-torch==2.2.2+cpu --extra-index-url https://download.pytorch.org/whl/cpu
-torchvision==0.17.2+cpu --extra-index-url https://download.pytorch.org/whl/cpu
-ultralytics==8.3.3

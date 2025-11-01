@@ -1,8 +1,0 @@
-__pycache__/
-*.log
-*.mp4
-*.jpg
-*.png
-output/
-.env
-.DS_Store
