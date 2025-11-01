@@ -9,7 +9,7 @@ model = YOLO("yolov5su.pt")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://vehicle-dencity-and-detection-app.vercel.app/"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
