@@ -3,10 +3,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from ultralytics import YOLO
 import cv2, numpy as np, os, time, shutil
+from dotenv import load_dotenv
+import os
 
 app = FastAPI()
 model = YOLO("yolov5su.pt")
-BACKEND_URL = "https://vehicle-detection-backend.onrender.com"
+load_dotenv()
+BACKEND_URL = os.getenv("BACKEND_URL")
+# BACKEND_URL = "https://vehicle-detection-backend.onrender.com"
 
 app.add_middleware(
     CORSMiddleware,
