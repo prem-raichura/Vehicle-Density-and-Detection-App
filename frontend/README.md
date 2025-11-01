@@ -1,4 +1,4 @@
-# 🚦 Vehicle Dencity & Detection App — Frontend (React + Vite)
+# 🚦 Vehicle Density & Detection App — Frontend (React + Vite)
 
 The **frontend** for TrafficEye — a responsive, animated, and intelligent user interface built using **React + Vite**.  
 It allows users to upload images or videos, processes them through a YOLOv5su-powered backend, and displays real-time vehicle detection results.
