@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 /**
- * Renders the introductory screen for the TrafficEye application.
  * @param {object} props - Component props.
  * @param {function} props.setShowDetection - Function to switch to the dashboard view.
  */
@@ -37,7 +36,7 @@ const WelcomeScreen = ({ setShowDetection }) => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 120, damping: 15 }}
       >
-        TrafficEye Detection System
+        Traffic Density & Detection System
       </motion.h1>
       
       <p className="text-lg text-gray-700 mb-10 z-10 max-w-xl">
