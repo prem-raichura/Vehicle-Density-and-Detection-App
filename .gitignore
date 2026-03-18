@@ -20,14 +20,17 @@ frontend/.env.local
 # ---------------------------
 # Python (Backend)
 # ---------------------------
-backend/__pycache__/
-backend/*.pyc
-backend/*.pyo
-backend/*.pyd
-backend/.venv/
-backend/env/
-backend/.env
-backend/output/
+# ---------------------------
+# Python (Backend)
+# ---------------------------
+# This covers all common variations of venv and casing
+[Bb]ackend/venv/
+[Bb]ackend/.venv/
+[Bb]ackend/env/
+[Bb]ackend/output/
+**/__pycache__/
+*.py[cod]
+.env
 
 # ---------------------------
 # Model files (large files)
