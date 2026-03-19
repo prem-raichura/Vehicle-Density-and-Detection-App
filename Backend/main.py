@@ -12,6 +12,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://vehicle-dencity-and-detectio-git-9084c5-prems-projects-198f1bf9.vercel.app/detection",
+        "https://vehicle-dencity-and-detectio-git-9084c5-prems-projects-198f1bf9.vercel.app",
         "https://vehicle-density-and-detection-app.vercel.app/detection",
         "https://vehicle-density-and-detection-app.vercel.app",
         "http://localhost:5173"
