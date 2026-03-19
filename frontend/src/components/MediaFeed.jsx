@@ -30,18 +30,34 @@ function MediaFeed({
             headers: { "Content-Type": "multipart/form-data" },
         });
 
-        // Map backend class_counts to chart array
-        const chartData = Object.entries(res.data.class_counts).map(([label, count]) => ({
-          label,
-          count,
-          color: label === "Car" ? "#3f7aa3" : label === "Truck" ? "#7a3a3a" : "#d97706"
-        }));
+        const classCounts = res.data?.class_counts || {};
+
+        // If empty → you can either keep it empty OR add a default entry
+        const chartData =
+          Object.keys(classCounts).length > 0
+            ? Object.entries(classCounts).map(([label, count]) => ({
+                label,
+                count: count ?? 0,
+                color:
+                  label === "Car"
+                    ? "#3f7aa3"
+                    : label === "Truck"
+                    ? "#7a3a3a"
+                    : "#d97706",
+              }))
+            : [
+                {
+                  label: "No Data",
+                  count: 0,
+                  color: "#9ca3af",
+                },
+              ]; 
 
         setResult({
-          totalVehicles: res.data.vehicles,
-          classes: chartData,
-          fps: res.data.fps,
-          density: res.data.density, // "High", "Medium", "Low"
+          totalVehicles: res.data?.vehicles ?? 0,
+          classes: chartData, 
+          fps: res.data?.fps ?? 0,
+          density: res.data?.density ?? "Unknown",
         });
         
         if (res.data.processed_url) {
