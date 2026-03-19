@@ -24,31 +24,31 @@ function MediaFeed({
         count,
         color: label === "Car" ? "#3f7aa3" : label === "Truck" ? "#7a3a3a" : "#d97706"
       })); */
-      try {
+    try {
         const API_URL = import.meta.env.VITE_API_URL;
         const res = await axios.post(`${API_URL}/detect`, formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-      });
+            headers: { "Content-Type": "multipart/form-data" },
+        });
 
-  // Map backend class_counts to chart array
-  const chartData = Object.entries(res.data.class_counts).map(([label, count]) => ({
-    label,
-    count,
-    color: label === "Car" ? "#3f7aa3" : label === "Truck" ? "#7a3a3a" : "#d97706"
-  }));
+        // Map backend class_counts to chart array
+        const chartData = Object.entries(res.data.class_counts).map(([label, count]) => ({
+          label,
+          count,
+          color: label === "Car" ? "#3f7aa3" : label === "Truck" ? "#7a3a3a" : "#d97706"
+        }));
 
-      setResult({
-        totalVehicles: res.data.vehicles,
-        classes: chartData,
-        fps: res.data.fps,
-        density: res.data.density, // "High", "Medium", "Low"
-      });
-      
-      if (res.data.processed_url) {
-        // Cache busting to ensure the new image/video loads
-        const finalUrl = `${res.data.processed_url}?t=${new Date().getTime()}`;
-        setMedia(finalUrl);
-      }
+        setResult({
+          totalVehicles: res.data.vehicles,
+          classes: chartData,
+          fps: res.data.fps,
+          density: res.data.density, // "High", "Medium", "Low"
+        });
+        
+        if (res.data.processed_url) {
+          // Cache busting to ensure the new image/video loads
+          const finalUrl = `${res.data.processed_url}?t=${new Date().getTime()}`;
+          setMedia(finalUrl);
+        }
 
     } catch (err) {
       console.error("Detection Error:", err);
