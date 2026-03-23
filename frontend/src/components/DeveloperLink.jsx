@@ -51,18 +51,20 @@ const DeveloperLink = () => {
       <a  
         href="https://unicorn03.vercel.app/"
         target="_blank"
-        style={{
-          color: designHovered ? '#000' : '#3b3131',
-          textDecoration: designHovered ? 'underline' : 'none',
-          textDecorationColor: '#000',
-          transition: 'all 0.3s ease',
-        }}
         rel="noopener noreferrer"
+        style={{
+          color: designHovered ? '#555' : '#000', // black → gray
+          fontWeight: '500', 
+          textDecoration: designHovered ? 'underline' : 'none',
+          textDecorationColor: '#555',
+          textUnderlineOffset: '3px',
+          transition: 'all 0.25s ease',
+          cursor: 'pointer'
+        }}
         onMouseEnter={() => setDesignHovered(true)}
         onMouseLeave={() => setDesignHovered(false)}
       >
         Charmi Padh
-        
       </a>
     </span>
   );
