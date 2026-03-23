@@ -29,7 +29,13 @@ function AnalysisResults({ results, isProcessing, densityConfig }) {
               <div className="bg-white p-4 rounded-4xl border border-gray-100 shadow-sm flex flex-col justify-center">
                 <p className="text-[9px] uppercase font-black text-gray-400 mb-1">Inference</p>
                 <p className="text-3xl font-black text-[#6a5a6a] tracking-tighter leading-none">
-                  {results.fps ? Number(results.fps).toFixed(1) : "0.0"}
+                  {
+                    results.fps
+                      ? Number(results.fps) < 1
+                        ? Number(results.fps).toFixed(2)
+                        : Number(results.fps).toFixed(1)
+                      : "0.0"
+                  }
                   <span className="text-[10px] ml-1 uppercase text-gray-400 font-bold">fps</span>
                 </p>
               </div>

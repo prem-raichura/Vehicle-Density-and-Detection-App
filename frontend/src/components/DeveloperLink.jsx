@@ -51,37 +51,18 @@ const DeveloperLink = () => {
       <a  
         href="https://unicorn03.vercel.app/"
         target="_blank"
+        style={{
+          color: designHovered ? '#000' : '#3b3131',
+          textDecoration: designHovered ? 'underline' : 'none',
+          textDecorationColor: '#000',
+          transition: 'all 0.3s ease',
+        }}
         rel="noopener noreferrer"
         onMouseEnter={() => setDesignHovered(true)}
         onMouseLeave={() => setDesignHovered(false)}
-        className="relative inline-block font-medium transition-transform duration-300 ease-in-out"
-        style={{
-          color: designHovered ? '#E6007A' : '#3b3131', // gray
-          transform: designHovered ? 'translateY(-2px)' : 'translateY(0)',
-          textShadow: designHovered ? '0 0 8px rgba(230,0,122,0.6)' : 'none',
-        }}
       >
         Charmi Padh
-        <svg
-          className="absolute left-0 w-full h-4 -bottom-2"
-          viewBox="0 0 210 25"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <motion.path
-            d="M 5 20 C 60 10, 150 10, 205 20"
-            strokeWidth="2.5"
-            fill="none"
-            strokeLinecap="round"
-            strokeDasharray="6 6"
-            initial={{ pathLength: -1, stroke: "#ececec" }}
-            animate={{
-              pathLength: designHovered ? 1 : 0,
-              stroke: designHovered ? "#E6007A" : "#ececec",
-            }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-          />
-        </svg>
+        
       </a>
     </span>
   );
